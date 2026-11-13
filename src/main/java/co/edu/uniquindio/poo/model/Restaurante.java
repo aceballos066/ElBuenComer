@@ -16,7 +16,7 @@ public class Restaurante {
     private List<ServicioDomicilio> listRestauranteServiciosDomicilio;
 
     /**
-     * Constructor de la clase Restaurante.
+     * Co nstructor de la clase Restaurante.
      */
     public Restaurante(String nombreComercial, String nit, String direccion) {
         this.nombreComercial = nombreComercial;
