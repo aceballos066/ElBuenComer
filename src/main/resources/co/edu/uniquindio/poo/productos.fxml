@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.poo.viewController.ProductoViewController"
+            prefWidth="900.0" prefHeight="720.0">
+    <children>
+        <VBox spacing="12.0" AnchorPane.topAnchor="15.0" AnchorPane.leftAnchor="20.0"
+              AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="15.0">
+            <padding>
+                <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
+            </padding>
+            <children>
+                <Label text="Gestión de productos" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+                <GridPane hgap="10.0" vgap="9.0">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="160.0"/>
+                        <ColumnConstraints hgrow="ALWAYS"/>
+                        <ColumnConstraints minWidth="160.0"/>
+                        <ColumnConstraints hgrow="ALWAYS"/>
+                    </columnConstraints>
+                    <children>
+                        <Label text="Categoría:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="cmbCategoria" GridPane.rowIndex="0" GridPane.columnIndex="1" maxWidth="Infinity"/>
+                        <Label text="Código:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                        <TextField fx:id="txtCodigo" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                        <Label text="Nombre:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtNombre" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                        <Label text="Descripción:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                        <TextField fx:id="txtDescripcion" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+                        <Label text="Precio base:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtPrecioBase" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                        <Label text="Tiempo preparación (min):" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                        <TextField fx:id="txtTiempoPreparacion" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+
+                        <Label text="Peso (g) [plato/postre]:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtPeso" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                        <Label text="Volumen (ml) [bebida]:" GridPane.rowIndex="3" GridPane.columnIndex="2"/>
+                        <TextField fx:id="txtVolumen" GridPane.rowIndex="3" GridPane.columnIndex="3"/>
+
+                        <Label text="Temperatura [bebida/postre]:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtTemperatura" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                        <Label text="Tipo preparación [plato]:" GridPane.rowIndex="4" GridPane.columnIndex="2"/>
+                        <ComboBox fx:id="cmbTipoPreparacion" GridPane.rowIndex="4" GridPane.columnIndex="3" maxWidth="Infinity"/>
+
+                        <CheckBox fx:id="chkCoccionAprobada" text="Cocción aprobada [plato]" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                        <CheckBox fx:id="chkEsFria" text="Es fría [bebida]" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                        <CheckBox fx:id="chkPreparacionEspecial" text="Preparación especial [bebida]" GridPane.rowIndex="5" GridPane.columnIndex="2"/>
+                        <CheckBox fx:id="chkRefrigeracion" text="Requiere refrigeración [postre]" GridPane.rowIndex="5" GridPane.columnIndex="3"/>
+                    </children>
+                </GridPane>
+
+                <HBox spacing="10.0">
+                    <children>
+                        <Button text="Registrar producto" onAction="#onRegistrarProducto"/>
+                        <Button text="Mostrar menú" onAction="#onMostrarMenu"/>
+                        <Button text="No cumplen calidad" onAction="#onMostrarSinCalidad"/>
+                        <Button text="Volver" onAction="#onVolver"/>
+                    </children>
+                </HBox>
+
+                <Label text="Productos:" style="-fx-font-weight: bold;"/>
+                <ListView fx:id="listProductos" VBox.vgrow="ALWAYS"/>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

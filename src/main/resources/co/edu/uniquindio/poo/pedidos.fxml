@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.poo.viewController.PedidoViewController"
+            prefWidth="980.0" prefHeight="760.0">
+    <children>
+        <VBox spacing="10.0" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="15.0"
+              AnchorPane.rightAnchor="15.0" AnchorPane.bottomAnchor="10.0">
+            <padding>
+                <Insets top="8.0" right="8.0" bottom="8.0" left="8.0"/>
+            </padding>
+            <children>
+                <Label text="Gestión de pedidos" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+                <GridPane hgap="10.0" vgap="8.0">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="150.0"/>
+                        <ColumnConstraints hgrow="ALWAYS"/>
+                        <ColumnConstraints minWidth="150.0"/>
+                        <ColumnConstraints hgrow="ALWAYS"/>
+                    </columnConstraints>
+                    <children>
+                        <Label text="Código pedido:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtCodigoPedido" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                        <Label text="Documento cliente:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                        <TextField fx:id="txtDocumentoCliente" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                        <Label text="Modalidad:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="cmbModalidad" GridPane.rowIndex="1" GridPane.columnIndex="1" maxWidth="Infinity"/>
+                        <Button text="1. Crear pedido temporal" onAction="#onCrearPedidoTemporal" GridPane.rowIndex="1" GridPane.columnIndex="2" GridPane.columnSpan="2"/>
+
+                        <Label text="Código producto:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtCodigoProducto" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                        <Label text="Cantidad:" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                        <TextField fx:id="txtCantidad" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+
+                        <Button text="2. Agregar producto" onAction="#onAgregarProducto" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+                        <Label text="Servicio domicilio:" GridPane.rowIndex="3" GridPane.columnIndex="2"/>
+                        <ComboBox fx:id="cmbServicio" GridPane.rowIndex="3" GridPane.columnIndex="3" maxWidth="Infinity"/>
+
+                        <Label text="Distancia km:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtDistancia" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                        <Button text="3. Registrar pedido" onAction="#onRegistrarPedido" GridPane.rowIndex="4" GridPane.columnIndex="2" GridPane.columnSpan="2"/>
+                    </children>
+                </GridPane>
+
+                <Label text="Detalles del pedido temporal:" style="-fx-font-weight: bold;"/>
+                <ListView fx:id="listDetalles" prefHeight="115.0"/>
+
+                <HBox spacing="10.0">
+                    <children>
+                        <Button text="Confirmar pedido" onAction="#onConfirmarPedido"/>
+                        <Button text="Consultar pedido" onAction="#onConsultarPedido"/>
+                        <ComboBox fx:id="cmbEstado" prefWidth="150.0"/>
+                        <Button text="Actualizar estado" onAction="#onActualizarEstado"/>
+                        <Button text="Volver" onAction="#onVolver"/>
+                    </children>
+                </HBox>
+
+                <SplitPane dividerPositions="0.52" VBox.vgrow="ALWAYS">
+                    <items>
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="Pedidos registrados:" style="-fx-font-weight: bold;"/>
+                                <ListView fx:id="listPedidos" VBox.vgrow="ALWAYS"/>
+                            </children>
+                        </VBox>
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="Consulta del pedido:" style="-fx-font-weight: bold;"/>
+                                <TextArea fx:id="txtConsultaPedido" editable="false" wrapText="true" VBox.vgrow="ALWAYS"/>
+                            </children>
+                        </VBox>
+                    </items>
+                </SplitPane>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
