@@ -11,7 +11,7 @@ public class RapidoExpress implements ServicioDomicilio {
 
     @Override
     public boolean aceptarRecorrido(double distanciaKm) {
-        return distanciaKm > 0 && distanciaKm <= DISTANCIA_MAX;
+        return distanciaKm >= 0 && distanciaKm <= DISTANCIA_MAX;
     }
 
     @Override
